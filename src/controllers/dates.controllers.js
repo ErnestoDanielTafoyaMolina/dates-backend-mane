@@ -49,7 +49,7 @@ export const getDate = async ( req, res ) => {
 
 export const postDate = async ( req, res ) => {
     try {
-        const response = await SendMessage( "524494604761" );
+        const response = await SendMessage();
         return res.status(201).json({
             ok:true, 
             msg:"Date created",
