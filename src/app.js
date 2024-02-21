@@ -10,6 +10,8 @@ app.set('port',configs.port);
 
 //own routes imports
 
+import datesRoutesV1 from "./routes/v1/dates.routes";
+
 //middlewares
 app.use(morgan("dev"));
 app.use(cors());
@@ -18,7 +20,7 @@ app.use(urlencoded({ extended:false }));
 
 
 //own routes
-
+app.use("/api/v1/dates",datesRoutesV1)
 //default route
 app.use(( req, res ) => {
     return res.status(404).json({
