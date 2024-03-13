@@ -3,8 +3,16 @@ import { config } from "dotenv";
 config();
 
 export const configs = {
+    //puerto
     port: process.env.PORT || 3001,
-    MONGO_URI:process.env.MONGO_URI || "mongodb://127.0.0.1:27017/test",
+    
+    //base de datos
+    DB_URL:process.env.HOST  || "",
+    DB_PASSWORD:process.env.PASSWORD  || "",
+    DB_DIALECT:process.env.DIALECT  || "", 
+    DB_NAME:process.env.DB_NAME  || "",
+
+    //whatsapp
     BOT_ID: process.env.BotId  || "",
     FB_URL:process.env.FaceBookUrl || "",
     FB_TOKEN:process.env.FB_BearerToken || "",

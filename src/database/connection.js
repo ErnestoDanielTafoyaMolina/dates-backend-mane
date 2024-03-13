@@ -1,12 +1,11 @@
-import mongoose from "mongoose";
+import Sequelize  from "sequelize";
 import { configs } from "../config";
 
-export async function ConnectDb(){
-    try {
-        await mongoose.connect(configs.MONGO_URI);
-        console.log('Conectado a la base de datos MongoDB');
-    } catch (error) {
-        console.log("There was an error connecting database...", error);
-        return;
-    };
-};
+export const sequelize = new Sequelize(
+    configs.DB_NAME,
+    configs.DB_DIALECT,
+    configs.DB_PASSWORD,{
+      host:configs.DB_URL,
+      dialect:configs.DB_DIALECT,
+    },
+);
