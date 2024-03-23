@@ -26,6 +26,6 @@ export const User = sequelize.define('user', {
     },
     role:{
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: true
     }
-})
+});
