@@ -17,4 +17,7 @@ export const configs = {
     FB_URL:process.env.FaceBookUrl || "",
     FB_TOKEN:process.env.FB_BearerToken || "",
     DEFAULT_PHONE_NUMBER:process.env.DefaultPhoneNumber || "",
+
+    //JWT
+    JWT_SECRET: process.env.JWT_SECRET || "",
 };
