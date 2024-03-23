@@ -1,6 +1,7 @@
 import bcrypt from "bcryptjs";
 import { User } from "../models/Users";
 import { isCompletedInfo } from "../services/validateInfo";
+import { createAccessToken } from "../libs/jwt";
 export const register = async (req, res) => {
     try {
         const { name, email, password, phone, role } = req?.body;
@@ -19,10 +20,13 @@ export const register = async (req, res) => {
              phone, 
              role 
             });
+        const token = await createAccessToken({ id: newUser.dataValues.idUser });
+
         return res.status(201).json({
             ok: true,
             msg: "User created",
-            data: newUser
+            data: newUser,
+            token
         })
     } catch (error) {
         console.log("there was an error on register: ", error);
