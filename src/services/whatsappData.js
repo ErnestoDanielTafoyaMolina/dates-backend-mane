@@ -1,4 +1,5 @@
 import { configs } from "../config";
+import { User } from "../models/Users";
 
 
 export const SendMessage = async ( phoneNbr=configs.DEFAULT_PHONE_NUMBER, templateName="hello_world" ) => {
@@ -38,4 +39,14 @@ export const SendMessage = async ( phoneNbr=configs.DEFAULT_PHONE_NUMBER, templa
         error
       };  
     };
+};
+
+//aqui iran unos servicios para obtener el numero del usuario por su id
+export const GetPhoneNumberByUserId = async ( userId ) => {
+    const user = await User.findOne({
+        where:{
+            idUser:userId
+        }
+    });
+    return user.phone
 };

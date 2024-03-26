@@ -3,7 +3,7 @@ import { deleteDate, getDate, getDates, patchDate, postDate } from "../../contro
 import { auth } from "../../middlewares/authJwt";
 const router = Router();
 
-// router.use(auth);
+router.use(auth);
 router.route("/")
     .get( getDates )
     .post( postDate );

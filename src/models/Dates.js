@@ -1,6 +1,6 @@
 import { DataTypes } from "sequelize";
 import { sequelize } from "../database/connection";
-import { User } from "./User";
+import { User } from "./Users";
 
 export const Date = sequelize.define('Date', {
     iddate: {
