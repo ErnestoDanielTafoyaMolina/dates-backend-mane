@@ -7,6 +7,13 @@ export const isCompletedInfo =( name, email, password, phone, role="user" ) =>{
     return true
 };
 
+export const isCompletedDate = ( title, description, date ) =>{
+    if(!title || !description || !date){
+        return false;
+    }
+    return true;
+};
+
 export const existingUser = async ( email ) =>{
     const userFind = await User.findOne({
         attributes:["email","phone"],

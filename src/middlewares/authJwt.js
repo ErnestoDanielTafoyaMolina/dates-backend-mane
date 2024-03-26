@@ -3,7 +3,7 @@ import { configs } from "../config";
 
 
 export const auth = (req, res, next) => {
-
+console.log("verifying token...");
     const { authorization } = req.headers;
   
     if(!authorization){
