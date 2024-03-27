@@ -22,7 +22,8 @@ export const getDates = async ( req, res )  => {
         const { id }= req.user;
         const dates = await Date.findAll({
             where:{
-                idUser:id
+                idUser:id,
+                deleted:false
             }
         });
         console.log("Fechas obtenidas: ",dates);
@@ -48,7 +49,8 @@ export const getDate = async ( req, res ) => {
         const date = await Date.findOne({
             where:{
                 iddate:dateId,
-                idUser:id
+                idUser:id,
+                deleted:false
             }
         })
 
@@ -87,6 +89,7 @@ export const postDate = async ( req, res ) => {
         const userPhone = await GetPhoneNumberByUserId(id);
 
         const response = await SendMessage( userPhone );
+
         return res.status(201).json({
             ok:true, 
             msg:"Date created",
